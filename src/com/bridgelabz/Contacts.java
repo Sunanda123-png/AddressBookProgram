@@ -1,4 +1,6 @@
 package com.bridgelabz;
+import jdk.internal.icu.impl.NormalizerImpl;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,6 +13,7 @@ public class Contacts
 {
 
     private static Contact contact;
+    private static NormalizerImpl.ReorderingBuffer firstName;
 
     public static void addPerson()
     {
@@ -102,6 +105,15 @@ public class Contacts
                 contact.setEmail(newEmail);
                 break;
         }
+        public static void removePerson() {
+
+            System.out.println("Enter a name you want to delete...");
+            String removeName = scanner.next();
+            for (int i=0; i<contact.size();i++)
+
+            contact.remove(i);
+
+        }
     }
 
 
@@ -114,5 +126,6 @@ public class Contacts
         System.out.println("Welcome to Address Book System System.");
         addPerson();
         editPerson();
+        removePerson();
     }
 }
